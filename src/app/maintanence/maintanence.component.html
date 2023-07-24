@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+    <mat-card class="example-card">
+        <mat-card-header class="header">
+         Maintanence
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label> Employee Name</mat-label>
+                <input matInput>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label> Role</mat-label>
+                <input matInput>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label> Amount</mat-label>
+                <input matInput>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label> Section</mat-label>
+                <mat-select>
+                  <mat-option value="Emp salary">Salary</mat-option>
+                  <mat-option value="Rent">Rent</mat-option>
+                  <mat-option value="Power Bill">Power Bill</mat-option>
+                  <mat-option value="">General Expenses</mat-option>
+                  
+                </mat-select>
+              </mat-form-field>     
+        </mat-card-content>
+        <mat-card-footer>
+            <div class="text-center">
+                <button mat-raised-button color="primary"  (click)="Add()">Add</button>
+            </div>   
+        </mat-card-footer>
+      </mat-card>
+    </div>
+    
+    <div class="col-sm-6">
+      <div class="main table-responsive" >
+        <h1> Maintanence View </h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Staff Salaries</th>
+                <th scope="col">Rent</th>
+                <th scope="col">Power bill</th>
+                <th scope="col">General Expances</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>Edit</td>
+              </tr>
+              <tr>
+                <th >2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>Edit</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td >Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Edit</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    

@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+    <mat-card-header >
+       <div class="text-center">Admin Login Page</div>
+    </mat-card-header>
+    <form [formGroup]="adminLogin">
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" type="text">
+            <mat-error *ngIf="(adminLogin.controls.username.touched ||adminLogin.controls.username.dirty) && adminLogin.controls.username.errors">
+                <small *ngIf="adminLogin.controls.username.errors.required">username required</small>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="pwd" type="password">
+            <mat-error *ngIf="(adminLogin.controls.pwd.touched ||adminLogin.controls.pwd.dirty) && adminLogin.controls.pwd.errors">
+                <small *ngIf="adminLogin.controls.pwd.errors.required">password required</small>
+            </mat-error>
+          </mat-form-field>
+    </mat-card-content>
+    
+    <mat-card-footer>
+        <div class="text-center">
+            <button mat-raised-button color="primary" [disabled]="adminLogin.invalid" (click)="submit()">Submit</button>
+        </div>   
+    </mat-card-footer>
+    </form>
+  </mat-card>
