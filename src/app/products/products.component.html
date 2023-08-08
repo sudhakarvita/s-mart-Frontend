@@ -1,23 +1,25 @@
 <div class="row">
     <div class="col-sm-6">
-<mat-card class="example-card">
+<mat-card class="example-card" [formGroup]= "productForm">
     <mat-card-header class="header">
         Product Details
     </mat-card-header>
     <mat-card-content>
-        <mat-form-field>
-            <mat-label>Distributor Id</mat-label>
-            <input matInput>
-          </mat-form-field>        
+      <mat-form-field>
+            <mat-label>Distributor Name</mat-label>
+            <mat-select  formControlName="distributorId">
+              <mat-option *ngFor="let dist of distname" [value]="dist._id">{{dist.distributor}}</mat-option>
+            </mat-select>
+          </mat-form-field>       
           <mat-form-field>
             <mat-label>Product Name</mat-label>
-            <input matInput>
+            <input matInput formControlName="productName">
           </mat-form-field>    
                
     </mat-card-content>
     <mat-card-footer>
         <div class="text-center">
-            <button mat-raised-button color="primary" (click)="Add()">Add</button>
+            <button mat-raised-button color="primary" (click)="AddProduct()" [disabled]="productForm.invalid">Add</button>
         </div>   
     </mat-card-footer>
   </mat-card>
@@ -28,31 +30,22 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">Distributor Id</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Action</th>
+            <th>S.No</th>
+            <th>Distributor Id</th>
+            <th >Product Name</th>
+            
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Edit</td>
+          <tr *ngFor="let p of product;let  i = index">
+            <th>{{i+1}}</th>
+            <td>
+              {{p.distributor_details[0]?.distributor}}
+            </td>
+            <td>{{p.productName}}</td>
+           
           </tr>
-          <tr>
-            <th >2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>Edit</td>
-          </tr>
-          <tr>
-            <th>3</th>
-            <td >Larry the Bird</td>
-            <td>@twitter</td>
-            <td>Edit</td>
-          </tr>
+       
         </tbody>
       </table>
     </div>

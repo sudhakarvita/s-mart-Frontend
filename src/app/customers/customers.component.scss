@@ -1,7 +1,7 @@
 .example-card{
-    width: 90%; 
+    width:40%; 
     margin: auto;
-    top: 110px; 
+    top: 80px; 
     padding-bottom: 10px; 
 }
 .header{
@@ -13,14 +13,4 @@
 mat-form-field{
     width:100%;
     margin-top: 25px;
-}
-.main{
-    margin: auto;
-    margin-top: 60px; 
-    width: 90%;
-}
-h1{
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color:rgb(84, 5, 5);
 }

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AdminService } from '../shared/admin.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditStockComponent } from '../edit-stock/edit-stock.component';
 
 @Component({
   selector: 'app-stock',
@@ -6,5 +9,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./stock.component.scss']
 })
 export class StockComponent {
+  viewstock:any
+  constructor(private adminapi : AdminService,private dialog:MatDialog){}
 
+  ngOnInit(){
+    this.adminapi.viewStock().subscribe((res)=>{
+      console.log(res);
+      
+     this.viewstock = res
+       })
+
+  }
+  stockEdit(data:any) {
+    this.dialog.open(EditStockComponent,{
+      width:'40%',
+       data
+    })  
+  }
+
+  delete(d:any){
+    let c = d 
+    this.adminapi.deleteStock(c._id).subscribe((res)=>{})
+    window.location.reload()
+  }
 }

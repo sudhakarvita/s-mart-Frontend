@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdminService } from '../shared/admin.service';
 
 @Component({
   selector: 'app-login',
@@ -8,27 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-  adminLogin !:FormGroup
-  constructor(private fb:FormBuilder, private router:Router){
-
-    this.adminLogin = this.fb.group({
-      username:['',[Validators.required]],
-      pwd:['',[Validators.required]],
-    })
-  }
+  adminLoginform !:FormGroup
+  constructor(private fb:FormBuilder, private router:Router,private Adminapi :AdminService){ }
 
   ngOnInit(): void {
-    
+    this.adminLoginform = this.fb.group({
+      username:['',[Validators.required]],
+      password:['',[Validators.required]],
+    })
   }
   submit(){
-   
-   if(this.adminLogin.valid){
-    alert('admin login succes')
-    localStorage.setItem('admin',JSON.stringify(this.adminLogin.value))
-    this.router.navigate(['/home'])
-   }else{
-    alert('login failed')
-  }
-  }
- 
+    if(this.adminLoginform.valid){
+
+      this.Adminapi.adminLogin(this.adminLoginform.value).subscribe((res:any)=>{ 
+       if(res){
+        localStorage.setItem('admin',JSON.stringify(res))
+        alert("admin login success")
+        this.router.navigate(['home'])
+       }else{
+        alert("admin login failed")
+       
+       }
+      })
+   }
+}
 }

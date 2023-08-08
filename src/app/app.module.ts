@@ -25,7 +25,12 @@ import { StockEntryComponent } from './stock-entry/stock-entry.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule} from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatSort, MatSortModule} from '@angular/material/sort';
+import { MatSortModule} from '@angular/material/sort';
+import { MatDialogModule} from '@angular/material/dialog';
+import { EditStockComponent } from './edit-stock/edit-stock.component';
+import { CustomersComponent } from './customers/customers.component';
+import { ProductSalesComponent } from './product-sales/product-sales.component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +43,9 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
     MaintanenceComponent,
     SaleComponent,
     StockEntryComponent,
+    EditStockComponent,
+    CustomersComponent,
+    ProductSalesComponent,
    
   ],
   imports: [
@@ -59,7 +67,9 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
     MatPaginatorModule, 
     MatTableModule,
     MatChipsModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,9 @@ import { StockComponent } from './stock/stock.component';
 import { SaleComponent } from './sale/sale.component';
 import { MaintanenceComponent } from './maintanence/maintanence.component';
 import { StockEntryComponent } from './stock-entry/stock-entry.component';
+import { HttpClientModule, } from '@angular/common/http';
+import { CustomersComponent } from './customers/customers.component';
+import { ProductSalesComponent } from './product-sales/product-sales.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -20,12 +23,17 @@ const routes: Routes = [
     { path:'sale',component:SaleComponent},
     { path:'maintanence',component:MaintanenceComponent},
     { path:'stockentry',component:StockEntryComponent},
+    { path:'customers',component:CustomersComponent},
+    { path:'product-sales',component:ProductSalesComponent}
    ]},
    
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

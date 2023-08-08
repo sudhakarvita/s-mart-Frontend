@@ -20,6 +20,7 @@ export class DashboardComponent {
   constructor(private breakpointObserver: BreakpointObserver,private router :Router) {}
   ngOnInit(){}
   logout(){
+    localStorage.removeItem('admin')
     this.router.navigate(['login'])
   }
 }

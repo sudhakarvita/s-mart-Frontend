@@ -1,0 +1,33 @@
+
+<mat-card class="example-card" [formGroup]="custRegform">
+    <mat-card-header class="header">
+       Customer Registration
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Customer Name</mat-label>
+            <input matInput formControlName="customername">
+          </mat-form-field>       
+          <mat-form-field>
+            <mat-label>Email Id</mat-label>
+            <input matInput formControlName="emailId">
+          </mat-form-field>    
+          <mat-form-field>
+            <mat-label>Mobile Number</mat-label>
+            <input matInput formControlName="mobileno">
+          </mat-form-field>       
+    </mat-card-content>
+    <mat-card-footer>
+        <div class="text-center">
+            <button mat-raised-button color="primary" (click)="Register()" [disabled]="custRegform.invalid">Register</button>
+        </div>   
+    </mat-card-footer>
+  </mat-card>
+    
+
+
+
+
+
+
+
