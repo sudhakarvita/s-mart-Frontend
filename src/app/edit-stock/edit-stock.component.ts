@@ -34,7 +34,7 @@ export class EditStockComponent implements OnInit{
   }
   upate(){
    this.adminapi.updateStock(this.data._id, this.stockEntryform.value).subscribe((res)=>{
-    console.log(res,'edit');
+    window.location.reload()
     
    })
   }

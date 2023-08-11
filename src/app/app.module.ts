@@ -30,7 +30,7 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { EditStockComponent } from './edit-stock/edit-stock.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProductSalesComponent } from './product-sales/product-sales.component';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -69,7 +69,7 @@ import { ProductSalesComponent } from './product-sales/product-sales.component';
     MatChipsModule,
     MatSortModule,
     MatDialogModule,
-    
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

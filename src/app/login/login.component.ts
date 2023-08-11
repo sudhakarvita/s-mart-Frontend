@@ -10,6 +10,8 @@ import { AdminService } from '../shared/admin.service';
 })
 export class LoginComponent implements OnInit{
   adminLoginform !:FormGroup
+  admin:any
+  username:any
   constructor(private fb:FormBuilder, private router:Router,private Adminapi :AdminService){ }
 
   ngOnInit(): void {
@@ -20,15 +22,15 @@ export class LoginComponent implements OnInit{
   }
   submit(){
     if(this.adminLoginform.valid){
-
       this.Adminapi.adminLogin(this.adminLoginform.value).subscribe((res:any)=>{ 
-       if(res){
+        this.admin = res
+       if( this.admin.username == this.adminLoginform.value.username ,
+        this.admin.password == this.adminLoginform.value.password){
         localStorage.setItem('admin',JSON.stringify(res))
         alert("admin login success")
         this.router.navigate(['home'])
        }else{
         alert("admin login failed")
-       
        }
       })
    }

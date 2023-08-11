@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../shared/admin.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-sales',
@@ -9,40 +10,80 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProductSalesComponent {
   productSalesform!:FormGroup
-  viewcustomers:any
   viewproducts:any
   viewstock:any
+  viewproductsflag:boolean = false
+  csProducts:any
+  grandTotal:number = 0
 
-constructor(private adminapi:AdminService, private fb:FormBuilder){}
+constructor(private adminapi:AdminService, private fb:FormBuilder,private router :Router){}
 
 ngOnInit(){
 
   this.productSalesform = this.fb.group({
-    customername :['',Validators.required],
-    productName:['',Validators.required],
-    sellingprice:['',Validators.required]
+    mobileno :['', Validators.required],
+    productName :['', Validators.required],
+    Price :['', Validators.required],
+    Quantity :['', Validators.required],
   })
-
-  this.adminapi.viewStock().subscribe((res)=>{
-       this.viewstock = res
-        })
-
   }
-
-
+  selectedProducts(event:any,p:any){
+    this.grandTotal += p.sellingPrice * Number(event.target.value)
+      // console.log( this.grandTotal,'aaa');
+    if(!this.csProducts){
+      this.csProducts = {
+        mobileno:this.productSalesform.value.mobileno,
+        saledProducts:[{
+          productName:p.product_details[0].productName,
+          Price:p.sellingPrice,
+          Quantity:event.target.value,
+        }],
+        grandTotal:this.grandTotal, 
+      }
+      
+      
+    }else{
+      let pro = {
+        productName:p.product_details[0].productName,
+          Price:p.sellingPrice,
+          Quantity:event.target.value,
+      }
+      this.csProducts.grandTotal = this.grandTotal
+      this.csProducts.saledProducts.push(pro)
+    }
+  
+    
+  }
+  
 
 Enter(){
+  this.adminapi.BycutomerNumber(this.productSalesform.value.mobileno).subscribe((res)=>{
+    if(res){
+      this.viewproductsflag =true
+      this.adminapi.viewStock().subscribe((res)=>{
+       this.viewproducts= res
+        })
+    }else{
+     alert('user not found')
+     this.router.navigate(['/home/customers'])
+    } 
+  })
+}
+
+Save(){
+
+  this.adminapi.addProductSale(this.csProducts).subscribe((res)=>{
+    alert('sale add sucessfully')
+    console.log(res,'sales');
+    
+  })
+}
 
 }
-}
 
 
-// this.adminapi.viewCustomer().subscribe((res)=>{
-//   this.viewcustomers = res
-// })
 
-// this.adminapi.viewProduct(this.productSalesform.value).subscribe((res)=>{
-//   this.viewproducts = res
-// })
+
+
 
 

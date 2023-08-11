@@ -59,4 +59,12 @@ export class AdminService {
   viewCustomer(){
     return this.http.get('http://localhost:5000/customer/viewcustomers')
   }
+
+  BycutomerNumber(mobileno:any){
+    return this.http.get('http://localhost:5000/customer/mobileno?mobileno='+mobileno)
+  }
+
+ addProductSale(data:any){
+  return this.http.post('http://localhost:5000/productsales',data)
+ }
 }
