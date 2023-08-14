@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from '../shared/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -13,7 +14,7 @@ export class CustomersComponent implements OnInit{
   viewproducts:any
   viewstock:any
 
- constructor(private fb :FormBuilder, private adminapi :AdminService){}
+ constructor(private fb :FormBuilder, private adminapi :AdminService, private router: Router){}
 
   ngOnInit(): void {
     this.custRegform = this.fb.group({
@@ -27,7 +28,8 @@ export class CustomersComponent implements OnInit{
   Register(){
    this.adminapi.addCustomer(this.custRegform.value).subscribe((res)=>{
     alert('Customer add sucessfully')
-    window.location.reload()
+    this.router.navigate(['/home/product-sales'])
+    
    })
   }
 }

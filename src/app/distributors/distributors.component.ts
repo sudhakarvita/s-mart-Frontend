@@ -16,7 +16,7 @@ export class DistributorsComponent {
   ngOnInit(){
     this.addDistributor = this.fb.group({
       distributor:['',[Validators.required]],
-      productcategory:['',[Validators.required]],
+      
     })
    
     this.admapi.ViewDistributors(this.addDistributor.value).subscribe((res)=>{

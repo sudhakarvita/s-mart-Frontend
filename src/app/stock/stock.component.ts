@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminService } from '../shared/admin.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditStockComponent } from '../edit-stock/edit-stock.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock',
@@ -10,7 +11,7 @@ import { EditStockComponent } from '../edit-stock/edit-stock.component';
 })
 export class StockComponent {
   viewstock:any
-  constructor(private adminapi : AdminService,private dialog:MatDialog){}
+  constructor(private adminapi : AdminService,private dialog:MatDialog,private router:Router){}
 
   ngOnInit(){
     this.adminapi.viewStock().subscribe((res)=>{
@@ -31,5 +32,8 @@ export class StockComponent {
     let c = d 
     this.adminapi.deleteStock(c._id).subscribe((res)=>{})
     window.location.reload()
+  }
+  Register(){
+  this.router.navigate(['/home/customers'])
   }
 }

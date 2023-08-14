@@ -67,4 +67,16 @@ export class AdminService {
  addProductSale(data:any){
   return this.http.post('http://localhost:5000/productsales',data)
  }
+
+ viewSales(){
+  return this.http.get('http://localhost:5000/productsales/viewsales')
+ }
+
+ addExpences(data:any){
+  return this.http.post('http://localhost:5000/expences',data)
+ }
+
+ viewExpences(){
+  return this.http.get('http://localhost:5000/expences/viewexpences')
+ }
 }

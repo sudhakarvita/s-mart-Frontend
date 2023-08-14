@@ -24,8 +24,9 @@ export class LoginComponent implements OnInit{
     if(this.adminLoginform.valid){
       this.Adminapi.adminLogin(this.adminLoginform.value).subscribe((res:any)=>{ 
         this.admin = res
-       if( this.admin.username == this.adminLoginform.value.username ,
-        this.admin.password == this.adminLoginform.value.password){
+       if( this.admin.username == this.adminLoginform.value.username &&
+        this.admin.password == this.adminLoginform.value.password
+        ){
         localStorage.setItem('admin',JSON.stringify(res))
         alert("admin login success")
         this.router.navigate(['home'])

@@ -25,11 +25,13 @@ ngOnInit(){
     productName :['', Validators.required],
     Price :['', Validators.required],
     Quantity :['', Validators.required],
+
   })
   }
   selectedProducts(event:any,p:any){
+
     this.grandTotal += p.sellingPrice * Number(event.target.value)
-      // console.log( this.grandTotal,'aaa');
+      
     if(!this.csProducts){
       this.csProducts = {
         mobileno:this.productSalesform.value.mobileno,
@@ -37,16 +39,17 @@ ngOnInit(){
           productName:p.product_details[0].productName,
           Price:p.sellingPrice,
           Quantity:event.target.value,
+          Total:p.sellingPrice*event.target.value
         }],
         grandTotal:this.grandTotal, 
-      }
-      
-      
+      }   
     }else{
       let pro = {
         productName:p.product_details[0].productName,
           Price:p.sellingPrice,
           Quantity:event.target.value,
+          Total:p.sellingPrice*event.target.value
+          
       }
       this.csProducts.grandTotal = this.grandTotal
       this.csProducts.saledProducts.push(pro)
@@ -71,10 +74,9 @@ Enter(){
 }
 
 Save(){
-
   this.adminapi.addProductSale(this.csProducts).subscribe((res)=>{
     alert('sale add sucessfully')
-    console.log(res,'sales');
+    this.router.navigate(['/home/sale'])
     
   })
 }

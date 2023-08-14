@@ -31,6 +31,9 @@ import { EditStockComponent } from './edit-stock/edit-stock.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProductSalesComponent } from './product-sales/product-sales.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -69,7 +72,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatChipsModule,
     MatSortModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
