@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="heading"><i class="bi bi-cart4" style="font-size: 25px;"></i>SuperMart</mat-toolbar>
+    <mat-nav-list class="navlist">
+      <a mat-list-item routerLink="distributors" routerLinkActive="active"><p><i class="bi bi-person-lines-fill"></i>Distributors</p></a>
+      <a mat-list-item routerLink="products" routerLinkActive="active"><p><i class="bi bi-box-seam-fill"></i>Products</p></a>
+      <a mat-list-item routerLink="stockentry" routerLinkActive="active"><p><i class="bi bi-grid-1x2-fill"></i>Stock Entry</p></a>
+      <a mat-list-item routerLink="stock" routerLinkActive="active"><p><i class="bi bi-grid-fill"></i>Stock</p></a>
+      <a mat-list-item routerLink="customers" routerLinkActive="active"><p><i class="bi bi-person-plus-fill"></i>Customers</p></a>
+      <a mat-list-item routerLink="product-sales" routerLinkActive="active"><p><i class="bi bi-clipboard2-data-fill"></i>Product Sales</p></a>  
+      <a mat-list-item routerLink="sale" routerLinkActive="active"><p> <i class="bi bi-reception-4"></i> Sales</p></a>
+      <a mat-list-item routerLink="maintanence" routerLinkActive="active"><p><i class="bi bi-person-fill-gear"></i>Maintanence</p></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>SuperMart</span><button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

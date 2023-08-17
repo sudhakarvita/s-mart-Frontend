@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(84, 5, 5);
+    padding-top: 30px;
+}
+.mat-elevation-z8  {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 15% !important;
+    
+  }
+  .filter{
+    width: 25%;
+    margin-left: 70px;
+  }
+th{
+  font-weight: bolder;
+  font-size: 0.9rem;
+}

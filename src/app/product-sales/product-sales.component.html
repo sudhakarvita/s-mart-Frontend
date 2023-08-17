@@ -1,0 +1,41 @@
+
+<div>
+    <mat-card class="example-card" [formGroup]="productSalesform" >
+        <mat-card-header class="header">
+           Products-Sales
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label>Mobile Number</mat-label>
+               <input matInput formControlName="mobileno" >
+              </mat-form-field>
+              <div  *ngIf="viewproductsflag">
+                <div class="row" >
+                  <div class="col-sm-6 " *ngFor="let p of viewproducts, let i= index">
+                    <div  *ngFor="let n of p.product_details, let j= index" class="p-2">
+
+                    <span>ProductName:</span>
+                    <input class="checkbox" type="checkbox" #pcheckbox formControlName="productName"  [value]="n.productName" > {{n.productName}}<br>
+
+                    <span>Price:</span>
+                    {{p.sellingPrice}}<br>
+
+                   <input   type="text"   formControlName="Quantity" (input)="selectedProducts($event,p)"><br><br>
+
+                  </div>
+                  </div>
+                </div>
+              </div> 
+              <div *ngIf="viewproductsflag "  class="text-center p-2">
+                <button mat-raised-button color="primary" (click)="Save()" >save</button>
+            </div> 
+        </mat-card-content>
+        <mat-card-footer>
+            <div class="text-center p-2" *ngIf="!viewproductsflag ">
+                <button mat-raised-button color="primary" (click)="Enter()" >Enter</button>
+            </div>   
+        </mat-card-footer>
+      </mat-card>
+    
+    </div>
+      
