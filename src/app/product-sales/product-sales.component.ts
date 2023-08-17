@@ -74,7 +74,10 @@ Enter(){
 }
 
 Save(){
+  // console.log(this.csProducts,"====",this.viewproducts);
+  
   this.adminapi.addProductSale(this.csProducts).subscribe((res)=>{
+
     alert('sale add sucessfully')
     this.router.navigate(['/home/sale'])
     

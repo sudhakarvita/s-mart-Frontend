@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit{
     })
   }
   submit(){
-    if(this.adminLoginform.valid){
+    if(this.adminLoginform.valid){      
       this.Adminapi.adminLogin(this.adminLoginform.value).subscribe((res:any)=>{ 
         this.admin = res
        if( this.admin.username == this.adminLoginform.value.username &&
@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit{
        }else{
         alert("admin login failed")
        }
+      },(err)=>{
+        alert("admin login failed")
       })
    }
 }
