@@ -79,4 +79,8 @@ export class AdminService {
  viewExpences(){
   return this.http.get('http://localhost:5000/expences/viewexpences')
  }
+
+ Salereport(q:any,m:any){
+  return this.http.get('http://localhost:5000/productsales/salereport?'+q+'='+m)
+ }
 }

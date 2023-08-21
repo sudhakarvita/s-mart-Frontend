@@ -14,7 +14,9 @@ export class SaleComponent implements OnInit{
   displayedColumns: string[] = ['Cus No', 'Product','Price','Quantity','Total','Total Price','Sale Date'];
   dataSource: any =[];
   viewsales:any
+  dateflag:boolean=false
   Grandtotal: number = 0
+  searchReport:any
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -44,6 +46,39 @@ export class SaleComponent implements OnInit{
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+getReport(e:any){
+  this.dateflag=false
+  this.searchReport=e
+if(e!='total'){
+  this.dateflag=true
+}
+
+}
+searchDate:any
+  getSale(event:any){
+    this.Grandtotal=0
+    if(this.searchReport=="day"){
+      this.searchDate = new Date(event).getDate()
+    }else if(this.searchReport=="month"){
+      this.searchDate = new Date(event).getMonth()
+    }else if(this.searchReport=="year"){
+      this.searchDate = new Date(event).getFullYear()
+    }
+    
+
+    this.adminapi.Salereport(this.searchReport,this.searchDate).subscribe((res)=>{
+      this.viewsales = res
+    this.viewsales.map((x:any)=>{ 
+      this.Grandtotal+=x.grandTotal
+      
+    })
+  
+   this.dataSource = new MatTableDataSource(this.viewsales)
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    })
   }
 }
 

@@ -20,6 +20,7 @@ constructor(private adminapi:AdminService, private fb:FormBuilder,private router
 
 ngOnInit(){
 
+
   this.productSalesform = this.fb.group({
     mobileno :['', Validators.required],
     productName :['', Validators.required],
@@ -37,6 +38,7 @@ ngOnInit(){
         mobileno:this.productSalesform.value.mobileno,
         saledProducts:[{
           productName:p.product_details[0].productName,
+          productId:p.productId,
           Price:p.sellingPrice,
           Quantity:event.target.value,
           Total:p.sellingPrice*event.target.value
@@ -46,6 +48,7 @@ ngOnInit(){
     }else{
       let pro = {
         productName:p.product_details[0].productName,
+        productId:p.productId,
           Price:p.sellingPrice,
           Quantity:event.target.value,
           Total:p.sellingPrice*event.target.value
@@ -65,6 +68,8 @@ Enter(){
       this.viewproductsflag =true
       this.adminapi.viewStock().subscribe((res)=>{
        this.viewproducts= res
+       
+       
         })
     }else{
      alert('user not found')
@@ -74,13 +79,21 @@ Enter(){
 }
 
 Save(){
-  // console.log(this.csProducts,"====",this.viewproducts);
   
   this.adminapi.addProductSale(this.csProducts).subscribe((res)=>{
-
     alert('sale add sucessfully')
+    for(const selectItems of this.csProducts.saledProducts){
+      const matchingItem=this.viewproducts.find((item:any)=>item.productId==selectItems.productId)
+      
+      if(matchingItem){
+        matchingItem.productQuantity-=selectItems.Quantity
+        this.adminapi.updateStock(matchingItem._id,matchingItem).subscribe((res:any)=>{
+          
+        })
+      }
+    }
     this.router.navigate(['/home/sale'])
-    
+
   })
 }
 
