@@ -13,7 +13,9 @@ export class ProductSalesComponent {
   viewproducts:any
   viewstock:any
   viewproductsflag:boolean = false
+  historyFlag:boolean = false
   csProducts:any
+  Customer:any
   grandTotal:number = 0
 
 constructor(private adminapi:AdminService, private fb:FormBuilder,private router :Router){}
@@ -95,6 +97,18 @@ Save(){
     this.router.navigate(['/home/sale'])
 
   })
+}
+
+getHistory(){
+ let customer = this.productSalesform.value.mobileno 
+ 
+ this.adminapi.customerHistorywithMobileno(customer).subscribe((res)=>{
+  this.Customer =res
+  this.historyFlag = true
+  console.log(this.Customer,'cus');
+  
+ })
+
 }
 
 }

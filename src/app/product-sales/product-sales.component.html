@@ -1,5 +1,5 @@
-
-<div>
+<div class="row">
+<div class="col-sm-6">
     <mat-card class="example-card" [formGroup]="productSalesform" >
         <mat-card-header class="header">
            Products-Sales
@@ -31,11 +31,51 @@
             </div> 
         </mat-card-content>
         <mat-card-footer>
-            <div class="text-center p-2" *ngIf="!viewproductsflag ">
-                <button mat-raised-button color="primary" (click)="Enter()" >Enter</button>
+            <div class="text-center " *ngIf="!viewproductsflag ">
+                <button mat-raised-button color="primary" (click)="Enter(); getHistory()">Enter</button>
             </div>   
         </mat-card-footer>
       </mat-card>
     
     </div>
-      
+  
+  <div class="col-sm-6" *ngIf="historyFlag">
+     <mat-card class="cus-card ">
+        <mat-card-header class="header">
+           Customer History
+        </mat-card-header>
+           <p class="mob"> Customer MobileNo.<span class="cmb">{{Customer[0].mobileno}}</span></p>
+          <mat-card-content>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody *ngFor=" let s of Customer">
+                <tr *ngFor=" let p of s.saledProducts; let i=index">
+                  <td>{{p.productName}}</td>
+                  <td>{{p.Price}}</td>
+                  <td>{{p.Quantity}}</td>
+                  <td>{{p.Total}}</td>
+                  <td>{{s.createdAt | date}}</td>
+                  <!-- <td>{{Customer.saledProducts[0].productName}}</td>
+                  <td>{{Customer.saledProducts[0].Price}}</td>
+                  <td>{{Customer.saledProducts[0].Quantity}}</td>
+                  <td>{{Customer.saledProducts[0].Total}}</td> -->
+                </tr>
+              
+              </tbody>
+            </table>
+          </mat-card-content>
+     </mat-card>
+
+  </div>  
+
+    
+  </div>    

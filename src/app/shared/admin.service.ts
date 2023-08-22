@@ -83,4 +83,8 @@ export class AdminService {
  Salereport(q:any,m:any){
   return this.http.get('http://localhost:5000/productsales/salereport?'+q+'='+m)
  }
+
+ customerHistorywithMobileno(mobileno:any){
+  return this.http.get('http://localhost:5000/productsales/mobileno?mobileno='+mobileno)
+ }
 }
