@@ -1,53 +1,116 @@
-<div class="container">
-<div class="row">
-    <div class="col-sm-8">
-      <form [formGroup]= "addDistributor">
-<mat-card class="example-card">
-    <mat-card-header class="header">
-        Distributors
-    </mat-card-header>
-    <mat-card-content>
-        <mat-form-field>
-            <mat-label>Distributor Name</mat-label>
-            <input matInput formControlName="distributor" type="text">
-          </mat-form-field>
-              
-    </mat-card-content>
-    <mat-card-footer>
-        <div class="text-center">
-            <button mat-raised-button color="primary"  (click)="Add()" [disabled]="addDistributor.invalid">Add</button>
-        </div>   
-    </mat-card-footer>
-  </mat-card>
-</form>
+ <!-- <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+         <form [formGroup]= "addDistributor">
+            <mat-card class="example-card">
+               <mat-card-header class="header">
+                  Distributors
+                </mat-card-header>
+                 
+                <mat-card-content class="d-flex">
+                    <div>
+                      <mat-form-field>
+                        <mat-label>Distributor Name</mat-label>
+                            <input matInput formControlName="distributor" type="text">
+                     </mat-form-field>
+                    </div>
+                    
+                    <div>
+                      <i class="bi bi-person-circle"></i>
+                    </div>
+                                                
+                </mat-card-content> 
+                      
+                    <mat-card-footer>
+                  <div class="text-center">
+                <button mat-raised-button color="primary"  (click)="Add()" [disabled]="addDistributor.invalid">Add</button>
+             </div>   
+                  </mat-card-footer>
+            </mat-card>
+          </form>
+    </div>    
+  </div> 
+</div> -->
+
+<!-- Section: Design Block -->
+<!-- <section class=" text-center text-lg-start">
+ 
+  <div class="card p-2">
+    <div class="row g-0 d-flex align-items-center">
+      
+      <div class="row">
+        <div class="col-sm-2 d-none d-lg-flex">
+          <img src="assets/images/s-pic5.jpg" alt="Trendy Pants and Shoes"
+            style="width: 100%; height: 200px;">
+        </div>
+      <div class="col-sm-5">
+        <div class="card-body py- px-md-0">
+
+          <form [formGroup]= "addDistributor">
+            <mat-card class="example-card">
+               <mat-card-header class="header">
+                  Distributors
+                </mat-card-header>
+                 
+                <mat-card-content>
+                      <mat-form-field>
+                        <mat-label>Distributor Name</mat-label>
+                            <input matInput formControlName="distributor" type="text">
+                     </mat-form-field>                                
+                </mat-card-content>     
+                    <mat-card-footer>
+                  <div class="text-center">
+                <button mat-raised-button color="primary"  (click)="Add()" [disabled]="addDistributor.invalid">Add</button>
+             </div>   
+                  </mat-card-footer>
+            </mat-card>
+          </form>
+    </div>
+</div>
+
+ <div class="col-sm-5">
+
+    </div>
+</div>
+</div>
+        </div> 
+</section> -->
+
+<div class="fluid h-100">
+<div class="row g-0">
+  <div class="col-lg-6">  
+    <form [formGroup]= "addDistributor">
+      <mat-card class="example-card">
+         <mat-card-header class="header">
+            Distributors
+          </mat-card-header>
+          <mat-card-content>
+                <mat-form-field>
+                  <mat-label>Distributor Name</mat-label>
+                      <input matInput formControlName="distributor" type="text">
+               </mat-form-field>                                
+          </mat-card-content>     
+              <mat-card-footer>
+            <div class="text-center">
+          <button mat-raised-button color="primary"  (click)="Add()" [disabled]="addDistributor.invalid">Add</button>
+       </div>   
+            </mat-card-footer>
+      </mat-card>
+    </form>
+  </div>
+
+  <div class="col-lg-6 ag">
+
+    <ag-grid-angular [rowData]="rowData" 
+    [columnDefs]="colDefs" 
+    style="width:420px; height: 200px;" 
+    class="ag-theme-alpine " 
+    [defaultColDef]="defaultColDef">
+      
+    </ag-grid-angular>
+  </div>
+</div>
 </div>
 
 
-<div class="col-sm-4">
-  <div class="main table-responsive" >
-    <h1> View Details</h1>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">Distributor Name</th>
-          
-           
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let v of viewdis,let i =index">
-            <th>{{i+1}}</th>
-            <td>{{v.distributor}}</td>
-            
-        
-          </tr>
-        
-        </tbody>
-      </table>
-</div>
-</div>
-
-</div>
-</div>
 

@@ -3,7 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar class="heading"><i class="bi bi-cart4" style="font-size: 25px;"></i>SuperMart</mat-toolbar>
+    <div class="heading"><img class="image p-2" src="/assets/images/s-pic6.jpg" alt="logo" style="width: 100%; height: 150px;"></div>
     <mat-nav-list class="navlist">
       <a mat-list-item routerLink="distributors" routerLinkActive="active"><p><i class="bi bi-person-lines-fill"></i>Distributors</p></a>
       <a mat-list-item routerLink="products" routerLinkActive="active"><p><i class="bi bi-box-seam-fill"></i>Products</p></a>

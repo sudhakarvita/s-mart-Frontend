@@ -33,6 +33,8 @@ import { ProductSalesComponent } from './product-sales/product-sales.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { AgGridModule } from 'ag-grid-angular';
+
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatDialogModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

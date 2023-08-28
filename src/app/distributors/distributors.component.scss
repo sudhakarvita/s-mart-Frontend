@@ -1,8 +1,11 @@
 .example-card{
-    width: 90%;
-    padding-bottom: 10px;
-    margin: auto;
-    top: 110px;  
+    width: 80%;
+     padding-bottom: 10px;
+     margin: auto;
+     top: 200px; 
+    box-shadow: 1px 4px 11px 0px;
+    height: 200px;
+    padding: 0px;  
 }
 .header{
     justify-content: center;
@@ -14,13 +17,45 @@ mat-form-field{
     width:100%;
     margin-top: 25px;
 }
-.main{
-    margin: auto;
-    margin-top: 60px; 
-    width: 90%;
-}
+
 h1{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:rgb(84, 5, 5);
 }
+.ag-theme-alpine {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 200px;
+    box-shadow: 1px 4px 11px 0px; 
+    font-weight: bolder;
+
+}
+::ng-deep .ag-header-cell-label{
+    justify-content: center;
+    color:rgb(84, 5, 5);
+}
+
+::ng-deep .ag-cell{
+    font-size: 17px;
+}
+.fluid{
+   background: url('../../assets/images/s-pic3.avif');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;  
+}
+::ng-deep.mat-drawer-content{
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+ 
