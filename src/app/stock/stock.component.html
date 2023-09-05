@@ -1,3 +1,4 @@
+<div class="main">
 <h1>Stock Details</h1>
 <table class="table">
     <thead>
@@ -13,9 +14,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let v of viewstock; let i = index ">
-        <th>{{i+1.}}</th>
-        <td>{{v.distributor_details[0].distributor}}</td>
-        <td>{{v.product_details[0].productName}}</td>
+        <th>{{i+1}}.</th>
+        <td>{{v.distributor_details[0]?.distributor}}</td>
+        <td>{{v.product_details[0]?.productName}}</td>
         <td>{{v.price}}</td>
         <td>{{v.sellingPrice}}</td>
         <td>{{v.productQuantity}}</td>
@@ -23,14 +24,11 @@
           <div><button class="btn btn-primary" (click)="stockEdit(v)">Edit</button>
              <button class="btn btn-danger"  style="margin-left: 10px;" (click)="delete(v)">Delete</button></div> 
         </td>
-
       </tr>
-    
-      
-     
     </tbody>
   </table>
 
+</div>
   
 
 

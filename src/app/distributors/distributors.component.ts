@@ -16,16 +16,22 @@ export class DistributorsComponent {
 
   colDefs: ColDef[] = [
 
-    { field: 'distributor' ,width:400,}
+    { field: 'distributor',},
+    { field: 'mobileno',},
+    { field: 'gstno',}
   ]
 
-  defaultColDef: ColDef = {}
+  defaultColDef: ColDef = {
+    sortable:true,filter:true,
+  }
+  
   constructor(private router: Router, private fb: FormBuilder, private admapi: AdminService) { }
 
   ngOnInit() {
     this.addDistributor = this.fb.group({
       distributor: ['', [Validators.required]],
-
+      mobileno: ['', [Validators.required]],
+      gstno: ['', [Validators.required]],
     })
 
     this.admapi.ViewDistributors(this.addDistributor.value).subscribe((res) => {

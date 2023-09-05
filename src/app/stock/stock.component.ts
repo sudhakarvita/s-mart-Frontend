@@ -13,6 +13,7 @@ export class StockComponent {
   viewstock:any
   constructor(private adminapi : AdminService,private dialog:MatDialog,private router:Router){}
 
+
   ngOnInit(){
     this.adminapi.viewStock().subscribe((res)=>{
       console.log(res);
@@ -31,6 +32,7 @@ export class StockComponent {
   delete(d:any){
     let c = d 
     this.adminapi.deleteStock(c._id).subscribe((res)=>{})
+    alert('Are you sure..?')
     window.location.reload()
   }
   Register(){

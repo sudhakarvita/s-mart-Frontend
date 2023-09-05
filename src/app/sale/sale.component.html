@@ -1,5 +1,6 @@
-<h1>Sale Details</h1>
 
+<div class="container-fluid">
+  <h1>Sale Details</h1>
 <div class="row">
   <div class="col-sm-4">    
 <mat-form-field class="filter">
@@ -84,13 +85,15 @@
         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
       </tr>
     </table>
+
    <div class="row ">
     <div class="col-sm-10 text-end">
     <p  class="me-5 fs-6 Gt">GrandTotal: <span class=" fw-bold">{{Grandtotal}}</span></p>
   </div>
+  
    </div>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
-  
+</div>  
   
   

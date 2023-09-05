@@ -76,41 +76,68 @@
         </div> 
 </section> -->
 
-<div class="fluid h-100">
-<div class="row g-0">
-  <div class="col-lg-6">  
+<div class="container-fluid h-100">
+  
     <form [formGroup]= "addDistributor">
       <mat-card class="example-card">
          <mat-card-header class="header">
             Distributors
           </mat-card-header>
           <mat-card-content>
+            <div class="row">
+                <div class="col-sm-4">
+                  <mat-form-field>
+                    <mat-label>Distributor Name</mat-label>
+                        <input matInput formControlName="distributor" type="text">
+                  </mat-form-field> 
+              </div>
+
+              <div class="col-sm-4">
+               <mat-form-field>
+                <mat-label>Mobile No.</mat-label>
+                    <input matInput formControlName="mobileno" type="number">
+             </mat-form-field>
+              </div>
+
+              <div class="col-sm-4">
                 <mat-form-field>
-                  <mat-label>Distributor Name</mat-label>
-                      <input matInput formControlName="distributor" type="text">
-               </mat-form-field>                                
+                 <mat-label>GST No.</mat-label>
+                     <input matInput formControlName="gstno" type="text">
+              </mat-form-field>
+               </div>
+            </div>
           </mat-card-content>     
               <mat-card-footer>
-            <div class="text-center">
-          <button mat-raised-button color="primary"  (click)="Add()" [disabled]="addDistributor.invalid">Add</button>
-       </div>   
+            <div class="text-center p-2" >
+              <button mat-raised-button color="primary"  (click)="Add()" [disabled]="addDistributor.invalid">Add</button>
+            </div>   
             </mat-card-footer>
       </mat-card>
     </form>
-  </div>
+  
 
-  <div class="col-lg-6 ag">
-
+  <div class="row">
+     <div class="col-sm-6">
     <ag-grid-angular [rowData]="rowData" 
     [columnDefs]="colDefs" 
-    style="width:420px; height: 200px;" 
+    style="width:100%; height: 280px;" 
     class="ag-theme-alpine " 
     [defaultColDef]="defaultColDef">
-      
+    [rowSelction]="'multiple'"
+    [animateRows]="true"
     </ag-grid-angular>
+    </div>
+
+    <div class="col-sm-6 ">
+      <video width="100%" height="280px" autoplay>
+        <source src="assets/images/s-video2.webm" type="video/mp4">
+       
+      </video>
+    </div>
+
   </div>
 </div>
-</div>
+
 
 
 

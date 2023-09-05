@@ -26,7 +26,7 @@ ngOnInit(){
   this.productSalesform = this.fb.group({
     mobileno :['', Validators.required],
     productName :['', Validators.required],
-    Price :['', Validators.required],
+    Price :[''],
     Quantity :['', Validators.required],
 
   })
@@ -58,6 +58,7 @@ ngOnInit(){
       }
       this.csProducts.grandTotal = this.grandTotal
       this.csProducts.saledProducts.push(pro)
+      
     }
   
     

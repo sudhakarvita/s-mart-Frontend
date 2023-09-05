@@ -1,3 +1,4 @@
+<div class="container-fluid main">
 <mat-card class="example-card" [formGroup]="stockEntryform">
     <mat-card-header class="header">
        Stock-Entry
@@ -30,10 +31,10 @@
     </mat-card-content>
     <mat-card-footer>
         <div class="text-center">
-            <button mat-raised-button color="primary" (click)="Enter()">Enter</button>
+            <button mat-raised-button color="primary" (click)="Enter()" [disabled]="stockEntryform.invalid">Enter</button>
         </div>   
     </mat-card-footer>
   </mat-card>
-
+</div>
  
 

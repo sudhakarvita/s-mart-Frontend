@@ -13,8 +13,8 @@
 
 .mat-toolbar.mat-primary {
  background-color: #9295a8;
-  top: 0;
-  z-index: 1;
+ padding: 0;
+  
 }
 
 span{
@@ -25,13 +25,15 @@ span{
  font-size: 30px;
 }
 .active{
-  border-left: 5px solid rgb(251, 164, 15);
-  border-right: 5px solid rgb(251, 164, 15);
-  border-top: 2px solid rgb(245, 215, 115);
-  border-bottom:  3px solid rgb(245, 228, 160);
+  border-left: 8px solid  rgb(251, 164, 15);
+  border-right: 8px solid rgb(251, 164, 15);
+  border-top: 5px solid rgb(93, 94, 93);
+  border-bottom:  5px solid rgb(93, 94, 93);
   font-weight: bold;
   font-family: calibri;
   font-size: 30px;
+ 
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 p{
   font-size: 20px;
@@ -46,8 +48,8 @@ p{
 .heading{
   background-color: rgb(208, 136, 136);
 }
-.main{
-  background-color: red;
+.btn{
+  margin-right: 1rem;
 }
 
 

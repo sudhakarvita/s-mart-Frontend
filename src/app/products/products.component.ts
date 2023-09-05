@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../shared/admin.service';
+import { ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-products',
@@ -14,6 +15,12 @@ export class ProductsComponent {
   distname:any
   product:any
 
+  rowData:any[]=[];
+  colDefs:any[]=[
+    {field:"distributor"},
+    { field:"productName"}
+  ]
+  defaultColDef: ColDef = {}
   constructor(private router :Router, private fb : FormBuilder,private adminapi:AdminService){}
 
   ngOnInit(){
@@ -26,10 +33,15 @@ export class ProductsComponent {
     
    this.adminapi.viewdistName().subscribe((res)=>{
     this.distname = res
+    this.rowData  = this.distname
+    console.log(this.rowData,'ddd');
+    
   })
     
     this.adminapi.viewProduct(this.productForm.value).subscribe((res)=>{
       this.product = res 
+      this.rowData = this.product
+      console.log(this.rowData,'ppp');
    })
   }
 
@@ -47,4 +59,6 @@ export class ProductsComponent {
     })
   }
   }
+
+
 }

@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div class="row">
 <div class="col-sm-6">
     <mat-card class="example-card" [formGroup]="productSalesform" >
@@ -27,7 +28,7 @@
                 </div>
               </div> 
               <div *ngIf="viewproductsflag "  class="text-center p-2">
-                <button mat-raised-button color="primary" (click)="Save()" >save</button>
+                <button mat-raised-button color="primary" (click)="Save()" [disabled]="productSalesform.invalid" >save</button>
             </div> 
         </mat-card-content>
         <mat-card-footer>
@@ -75,7 +76,6 @@
           </mat-card-content>
      </mat-card>
 
-  </div>  
-
-    
-  </div>    
+    </div>     
+   </div>    
+  </div>

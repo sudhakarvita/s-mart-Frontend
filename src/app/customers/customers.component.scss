@@ -3,6 +3,8 @@
     margin: auto;
     top: 80px; 
     padding-bottom: 10px; 
+    background: transparent;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .header{
     justify-content: center;
@@ -13,4 +15,8 @@
 mat-form-field{
     width:100%;
     margin-top: 25px;
+}
+.container-fluid{
+    background-image: linear-gradient(to right bottom, rgb(198, 226, 208), rgb(206, 187, 224));
+    min-height: 100%;
 }

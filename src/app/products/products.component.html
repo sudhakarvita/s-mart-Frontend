@@ -1,53 +1,82 @@
-<div class="row">
-    <div class="col-sm-6">
-<mat-card class="example-card" [formGroup]= "productForm">
+<div class="container-fluid h-100">
+
+  <mat-card class="example-card" [formGroup]="productForm">
     <mat-card-header class="header">
-        Product Details
+      Product Details
     </mat-card-header>
     <mat-card-content>
-      <mat-form-field>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field>
             <mat-label>Distributor Name</mat-label>
-            <mat-select  formControlName="distributorId">
+            <mat-select formControlName="distributorId">
               <mat-option *ngFor="let dist of distname" [value]="dist._id">{{dist.distributor}}</mat-option>
             </mat-select>
-          </mat-form-field>       
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
           <mat-form-field>
             <mat-label>Product Name</mat-label>
             <input matInput formControlName="productName">
-          </mat-form-field>    
-               
+          </mat-form-field>
+        </div>
+      </div>
     </mat-card-content>
     <mat-card-footer>
-        <div class="text-center">
-            <button mat-raised-button color="primary" (click)="AddProduct()" [disabled]="productForm.invalid">Add</button>
-        </div>   
+      <div class="text-center">
+        <button mat-raised-button color="primary" (click)="AddProduct()" [disabled]="productForm.invalid">Add</button>
+      </div>
     </mat-card-footer>
   </mat-card>
-</div>
-<div class="col-sm-6">
-    <div class="main table-responsive">
-    <h1> View Details</h1>
-    <table class="table">
-        <thead>
-          <tr>
-            <th>S.No</th>
-            <th>Distributor Id</th>
-            <th >Product Name</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let p of product;let  i = index">
-            <th>{{i+1}}</th>
-            <td>
-              {{p.distributor_details[0]?.distributor}}
-            </td>
-            <td>{{p.productName}}</td>
-           
-          </tr>
-       
-        </tbody>
-      </table>
+
+
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Distributor Id</th>
+                <th>Product Name</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of product;let  i = index">
+                <td>{{i+1}}.</td>
+                <td>
+                  {{p.distributor_details[0]?.distributor}}
+                </td>
+                <td>{{p.productName}}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+
+    <div class="col-sm-6 ">
+      <video width="100%" height="280px" autoplay>
+        <source src="assets/images/s-video2.webm" type="video/mp4">
+
+      </video>
+    </div>
+
+  </div>
+
 </div>
-</div>
+
+<!-- <ag-grid-angular 
+    
+    [rowData]="rowData" 
+    [columnDefs]="colDefs" 
+    style="width:420px; height: 290px;" 
+    class="ag-theme-alpine " 
+    [defaultColDef]="defaultColDef">
+      
+    </ag-grid-angular> -->

@@ -25,15 +25,20 @@ export class EditStockComponent implements OnInit{
     })
 
     this.stockEntryform.patchValue({
-      distributorId :this.data.distributorId,
-      productId:this.data.productId,
+      distributorId :this.data.distributor_details[0]?.distributor,
+      productId:this.data.product_details[0]?.productName,
       productQuantity:this.data.productQuantity,
       price:this.data.price,
       sellingPrice:this.data.sellingPrice
     })
   }
   upate(){
-   this.adminapi.updateStock(this.data._id, this.stockEntryform.value).subscribe((res)=>{
+    let edata={
+      productQuantity:this.stockEntryform.value.productQuantity,
+      price:this.stockEntryform.value.price,
+      sellingPrice:this.stockEntryform.value.sellingPrice 
+    }
+   this.adminapi.updateStock(this.data._id,edata ).subscribe((res)=>{
     window.location.reload()
     
    })
